@@ -1,0 +1,55 @@
+services:
+  # Servicio de la Base de Datos MySQL
+  db:
+    image: mysql:latest
+    container_name: DBProyecto
+    environment:
+      MYSQL_ROOT_PASSWORD: host
+      MYSQL_DATABASE: Fabrica
+      MYSQL_USER: user
+      MYSQL_PASSWORD: host
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql-data-p4:/var/lib/mysql
+    networks: 
+      - app-network-p4
+    restart: always
+
+  # Servicio de phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: SGDB
+    environment:
+      PMA_HOST: db  
+      PMA_PORT: 3306
+    ports:
+      - "8084:80"
+    depends_on:
+      - db          
+    networks: 
+      - app-network-p4
+    restart: always
+
+# Servidor Web con Apache y PHP
+  webserver:
+    build: .  
+    container_name: Pagina_Web
+    restart: always
+    ports:
+      - "84:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - app-network-p4
+
+# Define las redes y volúmenes
+networks:
+  app-network-p4:
+    driver: bridge
+
+volumes:
+  mysql-data-p4:
+    driver: local
