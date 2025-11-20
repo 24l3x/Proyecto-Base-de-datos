@@ -53,7 +53,55 @@ En el encontraras el docker compose necesario para crear un contenedor parecido 
 Tambien lo puedes hacer en el servicio de phpMyAdmin
 
     container_name: Pagina_Web
-Y en el servicio de apache; Todo lo demas te recomiendo que lo dejes tal y como está
+Y en el servicio de apache; Todo lo demas te recomiendo que lo dejes tal y como está.
+
+Con el docker hub abierto, en el cmd, usa el comando :
+
+    docker-compose up -d --build
+ Para crear la el proyecto en docker.
+ 
+ Una ves creado el proyecto, entra a phpMyAdmin y entra en la base de datos que hayas creado y posteriormente da clic en "Importar", en este apartado vas a sabir el archivo **proyecto-DDL.sql** descargado previamente.
+ 
+ Vuelve a hacer lo mismo de hace un momento de entrar en la base de datos y darle clic en "Importar", pero ahora sube proyecto-DML.sql, esto poblara las tablas.
+ 
+ Finalmente, conecta todas las paginas .php con la base de datos:
+ 
+     $servidor = "db";
+    $usuario = "root";
+    $clave = "host";
+    $baseDeDatos = "Fabrica";
+    $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
+Estos datos deben de coincidir con los que pusiste en el apartado de servicio MySQL de el docker compose.
+
+Si ya tienes esto tu pagina ya debe estar operativa y conectada a tu servidor de docker.
+
+## Solución para crear un usuario
+En el archivo index.php, en el header cambia esto:
+
+    <header>
+            <nav>
+                <div class="left">
+                    <a href="index.php"><H1>FABRICA DE JUGUETES</H1></a>
+                </div>
+                <div class="right">
+                    <a href="sesion.php">Iniciar sesión</a>
+                </div>                
+            </nav>
+    </header>
+ Por esto:
+ 
+     <header>
+            <nav>
+                <div class="left">
+                    <a href="index.php"><H1>FABRICA DE JUGUETES</H1></a>
+                </div>
+                <div class="right">
+                    <a href="sesion.php">Iniciar sesión</a>
+                </div>                
+            </nav>
+    </header>
+
+Esto hará que nos saltemos el inicio de sesion y podamos llegar a la pagina de registro para agregar un nuevo usuario, una vez creado el usuario, regresa el header a como estaba.
  
 ##  Bibliografía:
 - ¿Qué es una pila LAMP? - Explicación de la pila LAMP - AWS. (n.d.). Amazon Web Services, Inc. https://aws.amazon.com/what-is/lamp-stack/
