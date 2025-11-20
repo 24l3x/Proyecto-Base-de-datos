@@ -96,7 +96,7 @@ En el archivo index.php, en el header cambia esto:
                     <a href="index.php"><H1>FABRICA DE JUGUETES</H1></a>
                 </div>
                 <div class="right">
-                    <a href="sesion.php">Iniciar sesión</a>
+                    <a href="registro.php">Iniciar sesión</a>
                 </div>                
             </nav>
     </header>
