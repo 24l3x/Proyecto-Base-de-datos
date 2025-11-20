@@ -3,6 +3,8 @@ Proyecto de implmentacion de las cosas vistas en la materia de base de datos
 
 ![GitHub Tag](https://img.shields.io/github/v/tag/24l3x/Proyecto-Base-de-datos)
 
+## Pagina web
+https://juguetesdars.page.gd/?i=1
 
 ## Planteación de el problema
 El cliente tiene una fabrica de juguetes en la que necesita tener el control de toda la gestión de ella, necesita saber que plantas intervienen en la creación de cada juguete. Cada juguete puede ser creado en 1 sola planta o en muchas plantas dependiendo de el proceso que necesite la creación; cada planta puede crear muchos tipos de juguetes distintos, así mismo en cada planta solo puede hacerse un tipo de proceso, pero cada proceso puede estar en muchas plantas, los procesos solo pueden existir si hay alguna planta donde hacerlo y maquinas que las hagan, así mismo saber que maquina hace que proceso, cada maquina solo puede tener un solo proceso al mismo tiempo pero un mismo proceso puede estar asignado a varias maquinas, como que maquina esta asignada a cada técnico operario en que lapso de tiempo, cada maquina solo puede tener una sola asignación en cada turno y así mismo un técnico solo esta asignado a una sola maquina cada turno, cada técnico puede ser técnico industrial si sus actividades requieren algún tipo de intervención eléctrica, mecánica, etc, o textil si su trabajo tiene algo que ver con tela, un tecnico solo puede ser un tipo de tecnico a la vez. De la misma manera la asignación solo puede existir si hay alguna maquina disponible y un técnico que la opere.
